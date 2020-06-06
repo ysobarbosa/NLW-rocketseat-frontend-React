@@ -1,14 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+// JSX: Sintaxe de xml dentro do JavaScript
+
+import Header from './Header'
+
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  function handleButtonClick() {
+    setCounter(counter + 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello Word</h1>
-      </header>
+    <div>
+      <Header title= {`Contador: ${counter}`} />
+
+      <h1>Conteúdo da aplicação</h1>
+      <button type="button" onClick={handleButtonClick}>Aumentar</button>
     </div>
   );
 }
